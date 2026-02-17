@@ -39,4 +39,23 @@ public class UsersServiceImpl implements UsersService {
             UsersMapper.mapToUsersDTO(user)
         ).collect(Collectors.toList());
     }
+
+    @Override
+    public UsersDTO updateUser(Long userId, UsersDTO updatedUser) {
+        Users user = usersRepository.findById(userId)
+                .orElseThrow(
+                        () -> new ResourceNotFoundException("User is not found with id: " + userId)
+                );
+
+        user.setEmail(updatedUser.getEmail());
+        user.setName(updatedUser.getName());
+        user.setPassword(updatedUser.getPassword());
+        user.setRoleId(updatedUser.getRoleId());
+        user.setEmailVerifiedAt(updatedUser.getEmailVerifiedAt());
+        user.setRememberToken(updatedUser.getRememberToken());
+
+        Users updatedUserObj = usersRepository.save(user);
+
+        return UsersMapper.mapToUsersDTO(updatedUserObj);
+    }
 }

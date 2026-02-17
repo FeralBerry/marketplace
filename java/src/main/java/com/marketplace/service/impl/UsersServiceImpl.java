@@ -9,6 +9,9 @@ import com.marketplace.service.UsersService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @AllArgsConstructor
 public class UsersServiceImpl implements UsersService {
@@ -27,5 +30,13 @@ public class UsersServiceImpl implements UsersService {
                         () -> new ResourceNotFoundException("User is not found with id: " + userId)
                 );
         return UsersMapper.mapToUsersDTO(user);
+    }
+
+    @Override
+    public List<UsersDTO> getAllUsers() {
+        List<Users> users = usersRepository.findAll();
+        return users.stream().map((user) ->
+            UsersMapper.mapToUsersDTO(user)
+        ).collect(Collectors.toList());
     }
 }

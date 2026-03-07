@@ -2,7 +2,7 @@ package com.market.controllers;
 
 import com.market.requests.ProfileRequest;
 import com.market.responses.ProfileResponse;
-import com.market.services.impl.EmailService;
+import com.market.services.impl.EmailServiceImpl;
 import com.market.services.interfaces.ProfileService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -20,7 +20,7 @@ import java.util.List;
 @AllArgsConstructor
 public class ProfileController {
     private final ProfileService profileService;
-    private final EmailService emailService;
+    private final EmailServiceImpl emailService;
 
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)

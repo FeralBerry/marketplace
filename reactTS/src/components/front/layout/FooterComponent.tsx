@@ -1,7 +1,6 @@
-import React from "react";
-const footer = () => {
-    const assetDir = "src/assets/front"
-    return(
+
+function FooterComponent() {
+    return (
         <>
             <div className="footer-area ptb-50">
                 <div className="container">
@@ -9,8 +8,7 @@ const footer = () => {
                         <div className="col-lg-3 col-md-3 col-sm-4 col-xs-12">
                             <div className="single-footer contact-us">
                                 <div className="footer-title uppercase">
-                                    <h5>Contact US</h5>
-                                </div>
+                                    <h5>Contact US</h5></div>
                                 <ul>
                                     <li>
                                         <div className="contact-icon"><i className="zmdi zmdi-pin-drop"></i></div>
@@ -57,12 +55,12 @@ const footer = () => {
                                 </div>
                                 <div className="instagrm">
                                     <ul>
-                                        <li><a href="#"><img src={assetDir + `/img/gallery/01.jpg`} alt=""/></a></li>
-                                        <li><a href="#"><img src={assetDir + `/img/gallery/02.jpg`} alt=""/></a></li>
-                                        <li><a href="#"><img src={assetDir + `/img/gallery/03.jpg`} alt=""/></a></li>
-                                        <li><a href="#"><img src={assetDir + `/img/gallery/04.jpg`} alt=""/></a></li>
-                                        <li><a href="#"><img src={assetDir + `/img/gallery/05.jpg`} alt=""/></a></li>
-                                        <li><a href="#"><img src={assetDir + `/img/gallery/06.jpg`} alt=""/></a></li>
+                                        <li><a href="#"><img src="images/gallery/01.jpg" alt=""/></a></li>
+                                        <li><a href="#"><img src="images/gallery/02.jpg" alt=""/></a></li>
+                                        <li><a href="#"><img src="images/gallery/03.jpg" alt=""/></a></li>
+                                        <li><a href="#"><img src="images/gallery/04.jpg" alt=""/></a></li>
+                                        <li><a href="#"><img src="images/gallery/05.jpg" alt=""/></a></li>
+                                        <li><a href="#"><img src="images/gallery/06.jpg" alt=""/></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -79,7 +77,6 @@ const footer = () => {
                                             <a href="#">
                                                 <i className="zmdi zmdi-arrow-right"></i>
                                             </a>
-
                                         </div>
                                     </form>
                                     <div className="social-icon socile-icon-style-3 mt-40">
@@ -100,32 +97,34 @@ const footer = () => {
                     </div>
                 </div>
             </div>
+
+
             <div className="footer-bottom global-table">
                 <div className="global-row">
                     <div className="global-cell">
                         <div className="container">
                             <div className="row">
                                 <div className="col-md-6 col-sm-6 col-xs-12">
-                                    <div className="copyrigth"> Copyright @
-                                        <a href="https://web-site.tech">Web-site.tech</a> All right reserved
+                                    <div className="copyrigth"> Copyright @ <a href="devitems.com">Devitems</a> All
+                                        right reserved
                                     </div>
                                 </div>
                                 <div className="col-md-6 col-sm-6 col-xs-12">
                                     <ul className="payment-support text-right">
                                         <li>
-                                            <a href="#"><img src={assetDir + `/img/icons/pay1.png`} alt=""/></a>
+                                            <a href="#"><img src="images/icons/pay1.png" alt=""/></a>
                                         </li>
                                         <li>
-                                            <a href="#"><img src={assetDir + `/img/icons/pay2.png`} alt=""/></a>
+                                            <a href="#"><img src="images/icons/pay2.png" alt=""/></a>
                                         </li>
                                         <li>
-                                            <a href="#"><img src={assetDir + `/img/icons/pay3.png`} alt=""/></a>
+                                            <a href="#"><img src="images/icons/pay3.png" alt=""/></a>
                                         </li>
                                         <li>
-                                            <a href="#"><img src={assetDir + `/img/icons/pay4.png`} alt=""/></a>
+                                            <a href="#"><img src="images/icons/pay4.png" alt=""/></a>
                                         </li>
                                         <li>
-                                            <a href="#"><img src={assetDir + `/img/icons/pay5.png`} alt=""/></a>
+                                            <a href="#"><img src="images/icons/pay5.png" alt=""/></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -135,7 +134,7 @@ const footer = () => {
                 </div>
             </div>
             <div id="quickview-wrapper">
-                <div className="modal fade" id="productModal" tabIndex="-1" role="dialog">
+                <div className="modal fade" id="productModal" tabIndex={-1} role="dialog">
                     <div className="modal-dialog" role="document">
                         <div className="modal-content">
                             <div className="modal-header">
@@ -149,25 +148,25 @@ const footer = () => {
                                             <div className="tab-content active-portfolio-area-2">
                                                 <div role="tabpanel" className="tab-pane active" id="view1">
                                                     <div className="product-img">
-                                                        <a href="#"><img src={assetDir + `/img/product/01.jpg`}
+                                                        <a href="#"><img src="images/product/01.jpg"
                                                                          alt="Single portfolio"/></a>
                                                     </div>
                                                 </div>
                                                 <div role="tabpanel" className="tab-pane" id="view2">
                                                     <div className="product-img">
-                                                        <a href="#"><img src={assetDir + `/img/product/02.jpg`}
+                                                        <a href="#"><img src="images/product/02.jpg"
                                                                          alt="Single portfolio"/></a>
                                                     </div>
                                                 </div>
                                                 <div role="tabpanel" className="tab-pane" id="view3">
                                                     <div className="product-img">
-                                                        <a href="#"><img src={assetDir + `/img/product/03.jpg`}
+                                                        <a href="#"><img src="images/product/03.jpg"
                                                                          alt="Single portfolio"/></a>
                                                     </div>
                                                 </div>
                                                 <div role="tabpanel" className="tab-pane" id="view4">
                                                     <div className="product-img">
-                                                        <a href="#"><img src={assetDir + `/img/product/04.jpg`}
+                                                        <a href="#"><img src="images/product/04.jpg"
                                                                          alt="Single portfolio"/></a>
                                                     </div>
                                                 </div>
@@ -175,13 +174,13 @@ const footer = () => {
                                             <div className="product-more-views-2">
                                                 <div className="thumbnail-carousel-modal-2" data-tabs="tabs">
                                                     <a href="#view1" aria-controls="view1" data-toggle="tab"><img
-                                                        src={assetDir + `/img/product/01.jpg`} alt=""/></a>
+                                                        src="images/product/01.jpg" alt=""/></a>
                                                     <a href="#view2" aria-controls="view2" data-toggle="tab"><img
-                                                        src={assetDir + `/img/product/02.jpg`} alt=""/></a>
+                                                        src="images/product/02.jpg" alt=""/></a>
                                                     <a href="#view3" aria-controls="view3" data-toggle="tab"><img
-                                                        src={assetDir + `/img/product/03.jpg`} alt=""/></a>
+                                                        src="images/product/03.jpg" alt=""/></a>
                                                     <a href="#view4" aria-controls="view4" data-toggle="tab"><img
-                                                        src={assetDir + `/img/product/04.jpg`} alt=""/></a>
+                                                        src="images/product/04.jpg" alt=""/></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -196,8 +195,7 @@ const footer = () => {
                                         <div className="quick-add-to-cart">
                                             <form method="post" className="cart">
                                                 <div className="numbers-row">
-                                                    <input type="number" id="french-hens" value="3" min="1"></input>
-                                                </div>
+                                                    <input type="number" id="french-hens" value="3" min="1"/></div>
                                                 <button className="single_add_to_cart_button" type="submit">Add to
                                                     cart
                                                 </button>
@@ -241,4 +239,9 @@ const footer = () => {
         </>
     )
 }
-export default footer
+
+export default FooterComponent
+
+
+
+

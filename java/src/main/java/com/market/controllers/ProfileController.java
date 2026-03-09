@@ -26,15 +26,22 @@ public class ProfileController {
     @ResponseStatus(HttpStatus.CREATED)
     public ProfileResponse register(@Valid @RequestBody ProfileRequest request) {
         ProfileResponse response = profileService.createProfile(request);
+        String emailTo = response.getEmail();
+
+        //TODO: send welcome email
+/*
+        emailService.sendSimpleEmail(emailTo,"Success register on app","Success");
         //emailService.sendSimpleEmail("admin@web-site.tech","Hi","test");
         HashMap<String, File> files = new HashMap<>();
         List<HashMap<String,File>> list = new ArrayList<>();
-        File file = new File("C:\\Users\\FeralHorse\\Downloads\\А ну-ка, девушки 2026\\музыка для конкурса\\1. Что Где Когда - Чёрный ящик.mp3");
+        File file = new File("");
         String filename = "1. Что Где Когда - Чёрный ящик.mp3";
         files.put(filename,file);
-        list.add(files);
-        emailService.sendEmailWithAttachment("admin@web-site.tech","withAttachment","test",list);
-        //TODO: send welcome email
+        list.add(files);*/
+
+        //emailService.sendEmailWithAttachment("admin@web-site.tech","withAttachment","test",list);
+        //emailService.sendHTMLEmail();
+
         return response;
     }
     @GetMapping("/profile")

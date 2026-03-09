@@ -112,6 +112,17 @@ public class EmailServiceImpl implements EmailService {
             return e.getMessage();
         }
     }
+
+    @Override
+    public void sendResetOtpEmail(String toEmail, String otp) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom(emailUserName);
+        message.setTo(toEmail);
+        message.setSubject("Password Reset Otp");
+        message.setText("Your otp for resetting your password is " + otp + ". Use this OTP to proceed with resetting your password.");
+        mailSender.send(message);
+    }
+
     private MimeMessageHelper helper(MimeMessage message,String toEmail, String subject,String htmlName) throws MessagingException, IOException {
         MimeMessageHelper helper = new MimeMessageHelper(message,true);
         helper.setFrom(emailUserName);

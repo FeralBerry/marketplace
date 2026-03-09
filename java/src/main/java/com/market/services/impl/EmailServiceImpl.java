@@ -123,6 +123,16 @@ public class EmailServiceImpl implements EmailService {
         mailSender.send(message);
     }
 
+    @Override
+    public void sendOtpEmail(String toEmail, String otp) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom(emailUserName);
+        message.setTo(toEmail);
+        message.setSubject("Account Verification OTP");
+        message.setText("You OTP is " + otp + ". Veryfy your account this OTP.");
+        mailSender.send(message);
+    }
+
     private MimeMessageHelper helper(MimeMessage message,String toEmail, String subject,String htmlName) throws MessagingException, IOException {
         MimeMessageHelper helper = new MimeMessageHelper(message,true);
         helper.setFrom(emailUserName);

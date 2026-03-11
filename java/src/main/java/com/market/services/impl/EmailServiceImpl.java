@@ -5,6 +5,7 @@ import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -87,6 +89,11 @@ public class EmailServiceImpl implements EmailService {
         try {
             MimeMessage message = mailSender.createMimeMessage();
             MimeMessageHelper helper = helper(message,toEmail,subject,htmlName);
+            File htmlFile = new ClassPathResource("templates/emails/" + htmlName + ".html").getFile();
+            helper.setFrom(emailUserName);
+            helper.setTo(toEmail);
+            helper.setSubject(subject);
+            message.setContent(Files.readString(htmlFile.toPath()), "text/html; charset=utf-8");
             files.forEach(file -> {
                 for (Map.Entry<String, File> entry : file.entrySet()) {
                     try {
@@ -102,10 +109,21 @@ public class EmailServiceImpl implements EmailService {
             return e.getMessage();
         }
     }
+    /**
+     * Method send attachment all settings at application.properties
+     * toEmail - куда отправлять емаил
+     * subject - заголовок
+     * htmlName - название файла html из папки templates.email
+     * */
     public String sendHTMLEmail(String toEmail, String subject, String htmlName){
         try {
             MimeMessage message = mailSender.createMimeMessage();
-            MimeMessageHelper helper = helper(message,toEmail,subject,htmlName);
+            File file = new ClassPathResource("templates/emails/" + htmlName + ".html").getFile();
+            MimeMessageHelper helper = new MimeMessageHelper(message,true);
+            helper.setFrom(emailUserName);
+            helper.setTo(toEmail);
+            helper.setSubject(subject);
+            message.setContent(Files.readString(file.toPath()), "text/html; charset=utf-8");
             mailSender.send(message);
             return "success";
         } catch (Exception e){

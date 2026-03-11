@@ -1,5 +1,0 @@
-import '../../../assets/js/vendor/jquery-1.12.0.min.js'
-import '../../../assets/js/bootstrap.min.js'
-import '../../../assets/js/slider/jquery.nivo.slider.pack.js'
-import '../../../assets/js/slider/nivo-active.js'
-import '../../../assets/js/jquery.countdown.min.js'

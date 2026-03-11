@@ -149,7 +149,7 @@ Version: 1.0
   width: 100%;
 }
 
- /*Header Transprent */
+ /*HeaderComponent Transprent */
  .transparent-header{
  	position: absolute;
  	width: 100%;
@@ -198,7 +198,7 @@ Version: 1.0
   top: 25px;
 }
 
-/*  Header 1 */
+/*  HeaderComponent 1 */
 .input-box {
     position: relative;
 }
@@ -406,7 +406,7 @@ Version: 1.0
   border: medium none;
 }
 
-/*Header Top*/
+/*HeaderComponent Top*/
 .header-top-bar {
   height: 50px;
   line-height: 50px;

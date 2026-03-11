@@ -11,10 +11,13 @@
   },
   "dependencies": {
     "axios": "^1.13.5",
+    "bootstrap": "^5.3.8",
+    "bootstrap-icons": "^1.13.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.13.1",
     "react-stomp": "^5.1.0",
+    "react-toastify": "^11.0.5",
     "sockjs": "^0.3.24",
     "sockjs-client": "^1.6.1"
   },

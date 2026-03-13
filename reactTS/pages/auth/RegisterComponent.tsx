@@ -37,14 +37,15 @@ function RegisterComponent() {
                         setConfirm_password_error("")
                     },5000)
                 } else {
-                    await axios.post(`${backendUrl}/register`,{name,email,password}).then((res) => {
-                        if(res.status === 201){
+                    await axios.post(`${backendUrl}/register`,{name,email,password})
+                        .then(() => {
+                            //TODO redirect to dashboard
                             navigate("/")
                             toast.success("Account created successfully.")
-                        } else {
-                            toast.error("Email already exists.")
-                        }
-                    });
+                        })
+                        .catch((error) => {
+                            toast.error("Error: " + error.status + " Email already exists.")
+                        });
                 }
             } else {
                 setConfirm_password_error("Passwords don't match");
@@ -94,7 +95,7 @@ function RegisterComponent() {
                                     <div className="input-box tci-box">
                                         {loading ?
                                             (
-                                                <a onClick={handleSubmit} className="btn-def btn2" disabled>Loading...</a>
+                                                <a className="btn-def btn2">Loading...</a>
                                             ) :
                                             (
                                                 <a onClick={handleSubmit}

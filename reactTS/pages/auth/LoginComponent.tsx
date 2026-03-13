@@ -1,18 +1,15 @@
 import {useContext, useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
-import UserService from "../../src/components/services/front/UserService.tsx";
 import axios from "axios";
 import {AppContext} from "../../context/AppContext.tsx";
+import {toast} from "react-toastify";
 
 function LoginComponent() {
-    const [isCreateAccount, setIsCreateAccount] = useState(false);
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
     const [loading,setLoading] = useState(false);
-    const {backendUrl} = useContext(AppContext);
-
-
-    const [error,setError] = useState('');
+    // @ts-ignore
+    const {backendUrl,setIsLoggedIn,getUserData} = useContext(AppContext);
     const navigate = useNavigate();
 
     const handleSubmit = async (e: { preventDefault: () => void; }) =>{
@@ -20,23 +17,19 @@ function LoginComponent() {
         axios.defaults.withCredentials = true;
         setLoading(true);
         try{
-            axios.post(`${backendUrl}/login`,{email,password}).then(() => {
-
-            });
-            const userData = await UserService.login(email,password)
-            if(userData.token){
-                localStorage.setItem('token',userData.token)
-                localStorage.setItem('role',userData.role)
-                navigate("/profile")
-            } else {
-                setError(userData.error)
-            }
+            await axios.post(`${backendUrl}/login`,{email,password})
+                .then(() => {
+                    setIsLoggedIn(true)
+                    //TODO redirect to dashboard
+                    navigate("/")
+                    getUserData()
+                    toast.success("Authenticated success")
+                })
+                .catch((error) => {
+                    toast.error("Error: " + error.status + " Email or password incorrect")
+                })
         } catch (error){
-            // @ts-ignore
-            setError(error.message);
-            setTimeout(() => {
-                setError('')
-            },5000);
+            console.log(error)
         }
     }
     return (
@@ -44,10 +37,9 @@ function LoginComponent() {
             <div className="container">
                 <div className="row">
                     <div className="col-sm-offset-3 col-sm-6 col-xs-12">
-                        <form onSubmit={handleSubmit} className="login-side">
+                        <form className="login-side">
                             <div className="login-reg">
                                 <h3>Login</h3>
-                                {error && <p className="error-message">{error}</p>}
                                 <div className="input-box mb-20">
                                     <label className="control-label">E-Mail</label>
                                     <input type="email" placeholder="E-Mail" value={email} onChange={(e) => setEmail(e.target.value)} name="email"
@@ -61,7 +53,19 @@ function LoginComponent() {
                             </div>
                             <div className="frm-action">
                                 <div className="input-box tci-box">
-                                    <a type="submit" className="btn-def btn2">Login</a>
+                                    {loading ?
+                                    (
+                                        <>
+                                            <a onClick={handleSubmit} className="btn-def btn2">Login</a>
+                                        </>
+                                    ):
+                                    (
+                                        <>
+                                            <a className="btn-def btn2">Loading...</a>
+                                        </>
+                                    )
+                                    }
+
                                 </div>
                                 <span>
                          <input className="remr" type="checkbox"/> Remember me

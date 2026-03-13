@@ -1,31 +1,122 @@
-import {AppConstants} from "../../utils/AppConstants";
-import {Link} from "react-router-dom";
+import {AppConstants} from "../../utils/AppConstants.tsx";
+import {Link, useLocation} from "react-router-dom";
 
 const MenuComponent = () => {
-    return(
-        <div id="sticky-header" className="header-middle-area">
-            <div className="container">
-                <div className="full-width-mega-dropdown">
-                    <div className="row">
-                        <div className="col-md-2 col-sm-2">
-                            <div className="logo ptb-20"><a href="/"> <img src={AppConstants.BASE_IMG_URL + "logo/logo.png"}
-                                                                           alt="main logo"/></a></div>
+    const location = useLocation();
+    return (
+        <nav id="primary-menu" className="navbar navbar-expand-lg navbar-light bg-light">
+            <div className="container-fluid">
+                <Link className="navbar-brand" to="/"><img src={AppConstants.BASE_IMG_URL + "logo/logo.png"} alt="main logo"/></Link>
+                <button className="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-content">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+                <div className="collapse navbar-collapse" id="navbar-content">
+                    <ul className="navbar-nav mr-auto mb-2 mb-lg-0 main-menu">
+                        <li className={location.pathname == "/" ? "nav-item current" : "nav-item "}>
+                            <Link className={location.pathname == "/" ? "nav-link active" : "nav-link"} to="/">Home</Link>
+                        </li>
+                        <li className={location.pathname == "/man"
+                            ? "nav-item dropdown dropdown-mega position-static current"
+                            : "nav-item dropdown dropdown-mega position-static"}
+                            >
+                            <Link className={location.pathname == "/man"
+                                ? "nav-link active"
+                                : "nav-link"} to="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">Man</Link>
+                            <div className="dropdown-menu">
+                                <div className="mega-content px-4">
+                                    <div className="container-fluid">
+                                        <div className="row">
+                                            <div className="col-12 col-sm-4 col-md-3 py-4">
+                                                <ul className="single-mega-item">
+                                                    <li className="menu-title uppercase">Shirts</li>
+                                                    <li className="mega-menu-li"><a href="shop.html">Pant 01</a></li>
+                                                    <li className="mega-menu-li"><a className="active" href="shop.html">Pant 02</a></li>
+                                                    <li className="mega-menu-li"><a href="shop.html">Pant 03</a></li>
+                                                    <li className="mega-menu-li"><a href="shop.html">Pant 04</a></li>
+                                                </ul>
+                                            </div>
+                                            <div className="col-12 col-sm-4 col-md-3 py-4">
+                                                <ul className="single-mega-item">
+                                                    <li className="menu-title uppercase">Shirts</li>
+                                                    <li className="mega-menu-li"><a href="shop.html">Pant 01</a></li>
+                                                    <li className="mega-menu-li"><a href="shop.html">Pant 02</a></li>
+                                                    <li className="mega-menu-li"><a href="shop.html">Pant 03</a></li>
+                                                    <li className="mega-menu-li"><a href="shop.html">Pant 04</a></li>
+                                                </ul>
+                                            </div>
+                                            <div className="col-12 col-sm-4 col-md-3 py-4">
+                                                <ul className="single-mega-item">
+                                                    <li className="menu-title uppercase">Shirts</li>
+                                                    <li className="mega-menu-li"><a href="shop.html">Pant 01</a></li>
+                                                    <li className="mega-menu-li"><a href="shop.html">Pant 02</a></li>
+                                                    <li className="mega-menu-li"><a href="shop.html">Pant 03</a></li>
+                                                    <li className="mega-menu-li"><a href="shop.html">Pant 04</a></li>
+                                                </ul>
+                                            </div>
+                                            <div className="col-12 col-sm-4 col-md-3 py-4">
+                                                <ul className="single-mega-item">
+                                                    <li className="menu-title uppercase">Shirts</li>
+                                                    <li className="mega-menu-li"><a href="shop.html">Pant 01</a></li>
+                                                    <li className="mega-menu-li"><a href="shop.html">Pant 02</a></li>
+                                                    <li className="mega-menu-li"><a href="shop.html">Pant 03</a></li>
+                                                    <li className="mega-menu-li"><a href="shop.html">Pant 04</a></li>
+                                                </ul>
+                                            </div>
+                                            <div className="col-12 col-sm-12 col-md-12 py-4">
+                                                <div className="mega-banner-img">
+                                                    <a href="single-product.html"><img
+                                                        src={AppConstants.BASE_IMG_URL + "banner/banner-fashion-02.jpg"}
+                                                        alt=""/></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="#">About</Link>
+                        </li>
+                    </ul>
+                    <div className="col-md-3 hidden-sm hidden-xs">
+                        <div className="search-box global-table">
+                            <div className="global-row">
+                                <div className="global-cell">
+                                    <form action="#">
+                                        <div className="input-box">
+                                            <input className="single-input" placeholder="Search anything"
+                                                   type="text"/>
+                                            <button className="src-btn"><i className="fa fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
-                        <div className="col-md-7 col-sm-10 hidden-xs">
-                            <nav id="primary-menu">
-                                <ul className="main-menu">
-                                    <li className="current"><Link className="active" to='/'>Home</Link>
-                                        <ul className="dropdown">
-                                            <li><a className="active" href="index.html">Home One</a></li>
-                                            <li><a href="index-2.html">Home Two</a></li>
-                                            <li><a href="index-boxed-01.html">Home Three (Boxed)</a></li>
-                                            <li><a href="index-boxed-02.html">Home Four (Boxed)</a></li>
-                                        </ul>
-                                    </li>
-                                    <li className="mega-parent pos-rltv"><a href="shop.html">Man</a>
-                                        <div className="mega-menu-area mma-800">
-                                            <ul className="single-mega-item">
-                                                <li className="menu-title uppercase">Shirts</li>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+    /*<div id="sticky-header" className="header-middle-area">
+        <div className="container">
+            <div className="full-width-mega-dropdown">
+                <div className="row">
+                    <div className="col-md-7 col-sm-10 hidden-xs">
+                        <nav id="primary-menu">
+                            <ul className="main-menu">
+                                <li className="current"><Link className="active" to='/'>Home</Link>
+                                    <ul className="dropdown">
+                                        <li><a className="active" href="index.html">Home One</a></li>
+                                        <li><a href="index-2.html">Home Two</a></li>
+                                        <li><a href="index-boxed-01.html">Home Three (Boxed)</a></li>
+                                        <li><a href="index-boxed-02.html">Home Four (Boxed)</a></li>
+                                    </ul>
+                                </li>
+                                <li className="mega-parent pos-rltv"><a href="shop.html">Man</a>
+                                    <div className="mega-menu-area mma-800">
+                                        <ul className="single-mega-item">
+                                            <li className="menu-title uppercase">Shirts</li>
                                                 <li><a href="shop.html">Shirt 01</a></li>
                                                 <li><a href="shop.html">Shirt 02</a></li>
                                                 <li><a href="shop.html">Shirt 03</a></li>
@@ -334,7 +425,7 @@ const MenuComponent = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div>*/
     )
 }
 export default MenuComponent;

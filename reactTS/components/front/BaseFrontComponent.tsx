@@ -16,13 +16,16 @@ function BaseFrontComponent() {
             <AppContextProvider>
                 <div className="wrapper home-one">
                     <HeaderComponent/>
-                    <Routes>
-                        <Route path='/' element={ <HomeComponent/> }/>
-                        <Route path='/login' element={ <AuthComponent/> }/>
-                        <Route path='/register' element={ <AuthComponent/> }/>
-                        <Route path='/email-verify' element={ <EmailVerify/> }/>
-                        <Route path='/reset-password' element={ <ResetPassword/> }/>
-                    </Routes>
+                    <div className="main-content">
+                        <Routes>
+                            <Route path='/' element={ <HomeComponent/> }/>
+                            <Route path='/login' element={ <AuthComponent/> }/>
+                            <Route path='/register' element={ <AuthComponent/> }/>
+                            <Route path='/email-verify' element={ <EmailVerify/> }/>
+                            <Route path='/reset-password' element={ <ResetPassword/> }/>
+                        </Routes>
+                    </div>
+
                     <FooterComponent/>
                 </div>
             </AppContextProvider>

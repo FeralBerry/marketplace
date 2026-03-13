@@ -1,4 +1,4 @@
-import '../../src/assets/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import '../../src/assets/css/core.css'
 import '../../src/assets/css/shortcode/shortcodes.css'
 import '../../src/assets/css/style.css'

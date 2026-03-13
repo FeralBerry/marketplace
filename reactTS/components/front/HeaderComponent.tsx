@@ -1,28 +1,20 @@
 import {AppConstants} from "../../utils/AppConstants";
-import {isAuthenticated, setIsAuthenticated} from "../../utils/Variables.tsx";
 import MenuComponent from "./MenuComponent.tsx";
 import {Link} from "react-router-dom";
-import {useState} from "react";
 function HeaderComponent() {
     //const navigate = useNavigate();
-    const [auth,setAuth] = useState(isAuthenticated)
-    function auth1(){
-        setAuth(!auth);
-        setIsAuthenticated(!auth)
-    }
+    const auth = false
     function handleLogout(){
 
     }
     return (
-        <>
             <header className="header-area header-wrapper">
                 <div className="header-top-bar black-bg clearfix">
-                    <div className="container">
+                    <div className="container-fluid">
                         <div className="row">
-                            <div className="col-md-3 col-sm-3 col-xs-6">
+                            <div className="col-md-3 col-sm-3 auth-area">
                                 <div className="login-register-area">
                                     <ul>
-                                        <li><a onClick={auth1}>ddd</a></li>
                                         {
                                             !auth &&
                                             <>
@@ -39,7 +31,7 @@ function HeaderComponent() {
                                     </ul>
                                 </div>
                             </div>
-                            <div className="col-md-6 col-sm-6 hidden-xs">
+                            <div className="col-md-6 col-sm-6 social-area">
                                 <div className="social-search-area text-center">
                                     <div className="social-icon socile-icon-style-2">
                                         <ul>
@@ -52,7 +44,7 @@ function HeaderComponent() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-md-3 col-sm-3 col-xs-6">
+                            <div className="col-md-3 col-sm-3 cart-area">
                                 <div className="cart-currency-area login-register-area text-right">
                                     <ul>
                                         <li>
@@ -116,7 +108,6 @@ function HeaderComponent() {
                 </div>
                 <MenuComponent/>
             </header>
-        </>
     )
 }
 

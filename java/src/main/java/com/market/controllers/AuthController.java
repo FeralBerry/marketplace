@@ -34,6 +34,7 @@ public class AuthController {
     private final ProfileService profileService;
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody AuthRequest request){
+        System.out.println(request.getEmail());
         try {
             authenticate(request.getEmail(), request.getPassword());
             final UserDetails userDetails = appUserDetailsService.loadUserByUsername(request.getEmail());

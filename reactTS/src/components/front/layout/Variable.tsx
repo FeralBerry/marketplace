@@ -1,1 +1,0 @@
-export const imgLinks = "/src/assets/images/"

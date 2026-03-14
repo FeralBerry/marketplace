@@ -1,7 +1,0 @@
-import '../../../assets/css/bootstrap.min.css'
-import '../../../assets/css/core.css'
-import '../../../assets/css/shortcode/shortcodes.css'
-import '../../../assets/css/style.css'
-import '../../../assets/css/responsive.css'
-import '../../../assets/css/custom.css'
-import '../../../assets/css/color/skin-default.css'

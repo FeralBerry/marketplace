@@ -1,0 +1,59 @@
+@import 'https://fonts.googleapis.com/css?family=Lato:300,400,700|Montserrat:400,700';
+.change-auth{
+    color: #0c1923;
+}
+.main-content{
+    margin-top: 105px;
+}
+.cart-area{
+    padding-right: 25px;
+}
+.global-table .global-row .global-cell{
+    position: absolute;
+    margin-top: 15px;
+    right: 25px;
+}
+.mega-menu-li{
+    width: 100%;
+}
+.mega-menu-li a{
+    color: #0c1923;
+    text-decoration: none;
+    line-height: 30px;
+}
+.mega-menu-li a:hover {
+    color: #ac2925;
+}
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show{
+    color: #ac2925;
+}
+@media (max-width: 600px) {
+    .auth-area{
+        width: 27vw;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .social-area{
+        width: 35vw;
+        padding: 0;
+    }
+    .social-icon ul li a {
+        font-size: 13px;
+        height: 25px;
+        width: 25px;
+    }
+    .social-icon ul li{
+        padding: 0;
+        margin-right:0
+    }
+    .cart-area{
+        width: 38vw;
+        padding: 0 25px 0 0;
+    }
+    .global-table .global-row .global-cell{
+        position: relative;
+        width: 100%;
+        margin-top: 0;
+        right: 0;
+    }
+}

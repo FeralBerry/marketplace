@@ -1,4 +1,4 @@
-import BaseFrontComponent from "./components/front/BaseFrontComponent.tsx";
+import BaseFrontComponent from "../components/front/BaseFrontComponent.tsx";
 
 
 function App() {

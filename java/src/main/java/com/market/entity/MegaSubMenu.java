@@ -8,19 +8,17 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.sql.Timestamp;
-import java.util.List;
 
-@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class MegaMenuLinks {
+@Entity
+public class MegaSubMenu {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String link;
     private String title;
-    @OneToMany
-    private List<MegaSubMenu> megaSubMenus;
     @CreationTimestamp
     @Column(updatable = false)
     private Timestamp createdAt;

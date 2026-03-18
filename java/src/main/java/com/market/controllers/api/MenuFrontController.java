@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/front/request/")
+@RequestMapping("/front")
 public class MenuFrontController {
     private FrontMenuServiceImpl frontMenuServiceImpl;
 

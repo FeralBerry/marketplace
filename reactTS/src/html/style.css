@@ -779,6 +779,7 @@ CSS INDEX
     text-align: center;
 }
 .breadcumb-area {
+    background-position: center;
     background: rgba(0, 0, 0, 0) url("images/bg/breadcumb.jpg") no-repeat scroll 0 0;
     min-height: 245px;
 }

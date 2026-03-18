@@ -9,6 +9,18 @@ export const AppContextProvider = (props: { children: string | number | bigint |
     const backendUrl = AppConstants.BACKEND_URL;
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [userData, setUserData] = useState(false);
+    const [menu,setMenu] = useState([]);
+    const getMenu = async () => {
+        try {
+            axios.post(backendUrl + "/front/menu").then((res) => {
+                console.log(res.data)
+                setMenu(res.data)
+            })
+        } catch (error){
+            // @ts-ignore
+            toast.error(error.message)
+        }
+    }
     const getUserData = async () => {
         try{
             axios.get(backendUrl + "/profile")
@@ -27,7 +39,8 @@ export const AppContextProvider = (props: { children: string | number | bigint |
         backendUrl,
         isLoggedIn, setIsLoggedIn,
         userData,setUserData,
-        getUserData
+        getUserData,
+        menu,getMenu
     }
     return (
         <AppContext.Provider value={contextValue}>

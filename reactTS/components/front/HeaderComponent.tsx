@@ -1,7 +1,24 @@
 import {AppConstants} from "../../utils/AppConstants";
 import MenuComponent from "./MenuComponent.tsx";
 import {Link} from "react-router-dom";
+import {getSocialLink} from "./menu/menuAxios";
+import {useState} from "react";
+
+
 function HeaderComponent() {
+    const [socialLink,setSocialLink] = useState([])
+    if(socialLink.length == 0){
+        getSocialLink().then(res =>{
+            if (res !== null){
+                try {
+                    // @ts-ignore
+                    setSocialLink(res.data)
+                } catch (err){
+                    toast.error("Error: " + err)
+                }
+            }
+        })
+    }
     //const navigate = useNavigate();
     const auth = false
     function handleLogout(){
@@ -35,11 +52,18 @@ function HeaderComponent() {
                                 <div className="social-search-area text-center">
                                     <div className="social-icon socile-icon-style-2">
                                         <ul>
-                                            <li><a href="#" title="facebook"><i className="fa fa-facebook"></i></a></li>
-                                            <li><a href="#" title="twitter"><i className="fa fa-twitter"></i></a></li>
-                                            <li><a href="#" title="dribble"><i className="fa fa-dribbble"></i></a></li>
-                                            <li><a href="#" title="behance"><i className="fa fa-behance"></i></a></li>
-                                            <li><a href="#" title="rss"><i className="fa fa-rss"></i></a></li>
+                                            {
+                                                socialLink ? socialLink.map(link => {
+                                                    return (
+                                                        <li>
+                                                            <a href={link.url} title={link.title}
+                                                               dangerouslySetInnerHTML={{__html: link.icon}}>
+
+                                                            </a>
+                                                        </li>)
+                                                    })
+                                                    : ""
+                                            }
                                         </ul>
                                     </div>
                                 </div>

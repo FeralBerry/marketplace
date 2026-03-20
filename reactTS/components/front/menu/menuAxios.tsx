@@ -13,3 +13,12 @@ export const getMenu = async () => {
     }
 
 }
+export const getSocialLink = async () => {
+    try{
+        const {backendUrl} = useContext(AppContext);
+        return await axios.post(backendUrl + "/front/social");
+    } catch (err){
+        console.log(err)
+    }
+
+}

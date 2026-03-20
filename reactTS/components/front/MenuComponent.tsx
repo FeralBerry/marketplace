@@ -19,6 +19,7 @@ const MenuComponent =  ()=>{
             }
         })
     }
+
     return (
         <nav id="primary-menu" className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">

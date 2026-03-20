@@ -6,8 +6,8 @@ const MegaMenuLIElement = (links: any) => {
             {
                 links ? links.map((link:any) => {
                          return (
-                        <li className="mega-menu-li">
-                            <Link to={link.link}>{link.title}</Link>
+                        <li className={location.pathname === link.link ? "mega-menu-li active" : "mega-menu-li"}>
+                            <Link className={location.pathname === link.link ? "active" : ""} to={link.link}>{link.title}</Link>
                         </li>
                         )
                     })

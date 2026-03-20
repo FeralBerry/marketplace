@@ -13,39 +13,38 @@ const MegamenuLinkComponent = (url: string, megamenuName: string,menuLinks: any)
                 ? "nav-link active"
                 : "nav-link"} to="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">{megamenuName}</Link>
             <div className="dropdown-menu">
-                <div className="mega-content px-4">
-                    <div className="container-fluid">
-                        <div className="row">
+                    <div className="mega-content">
+                        <div className="container">
+                            <div className="row">
+                                {
+                                    menuLinks
+                                        ?
+                                        // @ts-ignore
+                                        menuLinks.map((link) => {
+                                            return (
+                                                <div className="col-sm-4 col-md-3 col-xs-12">
+                                                    <ul className="single-mega-item">
+                                                        {
+                                                            MegamenuULElement(link)
+                                                        }
+                                                    </ul>
+                                                </div>
+                                            )
+                                        })
+                                        :
+                                        ""
+                                }
 
-                            {
-                                menuLinks
-                                ?
-                                // @ts-ignore
-                                menuLinks.map((link) => {
-                                    return (
-                                        <div className="col-sm-4 col-md-3 py-4 col-xs-12">
-                                            <ul className="single-mega-item">
-                                                {
-                                                    MegamenuULElement(link)
-                                                }
-                                            </ul>
-                                        </div>
-                                    )
-                                })
-                                :
-                                ""
-                            }
-
-                            <div className="col-12 col-sm-12 col-md-12 py-4">
-                                <div className="mega-banner-img">
-                                    <a href="single-product.html"><img
-                                        src={AppConstants.BASE_IMG_URL + "banner/banner-fashion-02.jpg"}
-                                        alt=""/></a>
+                                <div className="col-12 col-sm-12 col-md-12 py-4">
+                                    <div className="mega-banner-img">
+                                        <a href="single-product.html"><img
+                                            src={AppConstants.BASE_IMG_URL + "banner/banner-fashion-02.jpg"}
+                                            alt=""/></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
         </li>
     )

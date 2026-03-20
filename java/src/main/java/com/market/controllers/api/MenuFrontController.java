@@ -1,6 +1,7 @@
 package com.market.controllers.api;
 
 import com.market.entity.FrontMenu;
+import com.market.entity.SocialLinks;
 import com.market.services.impl.FrontMenuServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,5 +19,9 @@ public class MenuFrontController {
     @PostMapping("/menu")
     public List<FrontMenu> getFrontMenu(){
         return frontMenuServiceImpl.getFrontMenu();
+    }
+    @PostMapping("/social")
+    public List<SocialLinks> getSocialLink(){
+        return frontMenuServiceImpl.getSocialLink();
     }
 }

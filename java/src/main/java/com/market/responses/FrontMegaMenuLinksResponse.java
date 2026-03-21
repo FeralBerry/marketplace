@@ -1,7 +1,6 @@
 package com.market.responses;
 
-import com.market.entity.MegaMenuLinks;
-import jakarta.persistence.Column;
+import com.market.entity.MegaSubMenu;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,10 +13,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class FrontMenuResponse {
+public class FrontMegaMenuLinksResponse {
     private Long id;
     private String title;
-    private String baseUrl;
-    private Integer menuType;
-    private List<FrontMegaMenuLinksResponse> megaMenuLinksList;
+    private List<MegaSubMenuResponse> megaSubMenus;
 }
